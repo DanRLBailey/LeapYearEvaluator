@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestPlatform.Utilities;
+using LeapYearEvaluator.Models;
 
 namespace LeapYearEvaluator.Controllers.Tests
 {
@@ -15,9 +16,12 @@ namespace LeapYearEvaluator.Controllers.Tests
         [TestMethod()]
         public void CsvDataCreatesProperlyTest()
         {
-            List<bool> outputs = new List<bool>()
+            List<YearModel> outputs = new List<YearModel>()
             {
-                true, true, false, true
+                new YearModel{ Year = 1, LeapYear = true },
+                new YearModel{ Year = 2, LeapYear = true },
+                new YearModel{ Year = 3, LeapYear = false },
+                new YearModel{ Year = 4, LeapYear = true }
             };
 
             StringBuilder csv = new StringBuilder();
@@ -30,7 +34,7 @@ namespace LeapYearEvaluator.Controllers.Tests
             string expected = csv.ToString();
 
             CsvController csvController = new CsvController();
-            string actual = csvController.CreateCsvData(outputs);
+            string actual = csvController.CreateCsvDataFromYearList(outputs);
 
             Assert.AreEqual(expected, actual);
         }
@@ -38,14 +42,17 @@ namespace LeapYearEvaluator.Controllers.Tests
         [TestMethod()]
         public void FileGetsWrittenToCorrectPathTest()
         {
-            List<bool> outputs = new List<bool>()
+            List<YearModel> outputs = new List<YearModel>()
             {
-                true, true, false, true
+                new YearModel{ Year = 1, LeapYear = false },
+                new YearModel{ Year = 2, LeapYear = false },
+                new YearModel{ Year = 3, LeapYear = false },
+                new YearModel{ Year = 4, LeapYear = true }
             };
             string filePath = @$"{AppDomain.CurrentDomain.BaseDirectory}";
 
             CsvController csvController = new CsvController();
-            csvController.OutputToCsv(outputs, "", filePath);
+            csvController.OutputYearListToCsv(outputs, "", filePath);
 
             bool actual = File.Exists(@$"{filePath}output.csv");
             Assert.AreEqual(true, actual);

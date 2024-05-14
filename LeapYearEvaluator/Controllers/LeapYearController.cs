@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LeapYearEvaluator.Models;
 
 namespace LeapYearEvaluator.Controllers
 {
@@ -21,13 +22,17 @@ namespace LeapYearEvaluator.Controllers
             return false;
         }
 
-        public List<bool> GetLeapYears()
+        public List<YearModel> GetLeapYears()
         {
-            List<bool> result = new List<bool>();
+            List<YearModel> result = new List<YearModel>();
             int currentYear = DateTime.Now.Year;
 
             for (int i = 1; i <= currentYear; i++)
-                result.Add(IsLeapYear(i));
+                result.Add(new YearModel
+                {
+                    Year = i,
+                    LeapYear = IsLeapYear(i),
+                });
 
             return result;
         }

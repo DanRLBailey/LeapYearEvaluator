@@ -1,4 +1,5 @@
 ﻿using LeapYearEvaluator.Controllers;
+using LeapYearEvaluator.Models;
 
 namespace LeapYearEvaluator
 {
@@ -7,12 +8,12 @@ namespace LeapYearEvaluator
         static void Main(string[] args)
         {
             LeapYearController leapYearController = new LeapYearController();
-            List<bool> leapYears = leapYearController.GetLeapYears();
+            List<YearModel> leapYears = leapYearController.GetLeapYears();
 
-            Console.WriteLine($"Total Leap Years: {leapYears.Count(y => y)}");
+            Console.WriteLine($"Total Leap Years: {leapYears.Count(y => y.LeapYear)}");
 
             CsvController csvController = new CsvController();
-            csvController.OutputToCsv(leapYears, "Year,LeapYear");
+            csvController.OutputYearListToCsv(leapYears, "Year,LeapYear");
         }
     }
 }

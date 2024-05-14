@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LeapYearEvaluator.Models;
 
 namespace LeapYearEvaluator.Controllers.Tests
 {
@@ -65,8 +66,8 @@ namespace LeapYearEvaluator.Controllers.Tests
             int expected = 491; //Total leap years since the year 1
 
             LeapYearController leapYearController = new LeapYearController();
-            List<bool> result = leapYearController.GetLeapYears();
-            int actual = result.Count(y => y);
+            List<YearModel> result = leapYearController.GetLeapYears();
+            int actual = result.Count(y => y.LeapYear);
 
             Assert.AreEqual(expected, actual);
         }
