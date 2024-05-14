@@ -19,7 +19,7 @@ Click into the address bar, type "cmd" then hit enter.
 Enter the following command, then hit enter and wait for the repo to clone:
 
 ```
-git clone https://github.com/DanRLBailey/LeapYearEvaluator
+git clone https://github.com/DanRLBailey/LeapYearEvaluator.git
 ```
 
 ## Running the Program
