@@ -32,7 +32,8 @@ Open the folder that was just created in the clone, and double click on `LeapYea
 
 Once opened, press "F5" or press the green "Play" button in the toolbar at the top. This will open a command prompt dialogue box, which displays the total number of leap years that have happened since year 1. Pressing any button at this point will close the command prompt window.
 
-![Image showing the green plus button, and the total number of leap years](https://github.com/DanRLBailey/LeapYearEvaluator/assets/41433945/8c8c9cf6-178f-4176-9c91-f8bc62078a56)
+![Image showing the green plus button, and the total number of leap years](https://github.com/DanRLBailey/LeapYearEvaluator/assets/41433945/efe96fbf-4207-4d40-bd3e-291078c42b3c)
+
 
 
 ## File Outputs
