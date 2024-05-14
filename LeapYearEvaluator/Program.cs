@@ -10,6 +10,9 @@ namespace LeapYearEvaluator
             List<bool> leapYears = leapYearController.GetLeapYears();
 
             Console.WriteLine($"Total Leap Years: {leapYears.Count(y => y)}");
+
+            CsvController csvController = new CsvController();
+            csvController.OutputToCsv(leapYears, "Year,LeapYear");
         }
     }
 }
