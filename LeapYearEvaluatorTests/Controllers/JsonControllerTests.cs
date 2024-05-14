@@ -22,12 +22,12 @@ namespace LeapYearEvaluator.Controllers.Tests
                 new YearModel{ Year = 3, LeapYear = false },
                 new YearModel{ Year = 4, LeapYear = true }
             };
-            string filePath = @$"{AppDomain.CurrentDomain.BaseDirectory}";
+            string filePath = $"{AppDomain.CurrentDomain.BaseDirectory}";
 
             JsonController jsonController = new JsonController();
             jsonController.OutputYearListToJson(outputs, filePath);
 
-            bool actual = File.Exists(@$"{filePath}output.json");
+            bool actual = File.Exists($"{filePath}output.json");
             Assert.AreEqual(true, actual);
         }
         
