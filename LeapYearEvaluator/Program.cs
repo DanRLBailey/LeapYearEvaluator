@@ -14,6 +14,9 @@ namespace LeapYearEvaluator
 
             CsvController csvController = new CsvController();
             csvController.OutputYearListToCsv(leapYears, "Year,LeapYear");
+
+            JsonController jsonController = new JsonController();
+            jsonController.OutputYearListToJson(leapYears);
         }
     }
 }
