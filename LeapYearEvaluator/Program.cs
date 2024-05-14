@@ -1,10 +1,15 @@
-﻿namespace LeapYearEvaluator
+﻿using LeapYearEvaluator.Controllers;
+
+namespace LeapYearEvaluator
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            LeapYearController leapYearController = new LeapYearController();
+            List<bool> leapYears = leapYearController.GetLeapYears();
+
+            Console.WriteLine($"Total Leap Years: {leapYears.Count(y => y)}");
         }
     }
 }
